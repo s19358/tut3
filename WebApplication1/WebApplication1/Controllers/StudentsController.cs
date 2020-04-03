@@ -76,8 +76,29 @@ namespace WebApplication1.Controllers
             return Ok(student);
         }
 
-       //httpput=> replace the resource
-       //httpdelete=>remove the resource
+        //httpput=> replace the resource
+        //httpdelete=>remove the resource
+
+        Student student = new Student();
+
+        [HttpPut("{id}")]
+        public IActionResult PutStudent(int id)
+        {
+
+            student.IdStudent = id;
+            return Ok("Update completed");
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteStudent(int id)
+        {     
+            if (student.IdStudent == id)
+            {
+                student = null;
+            }
+            return Ok("Delete completed");
+        }
+
 
     }
 }
