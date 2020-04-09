@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetStudents(string orderby)
+        public IActionResult GetStudents()
         {
 
             return Ok(_dbService.GetStudents());
@@ -84,18 +84,14 @@ namespace WebApplication1.Controllers
         [HttpPut("{id}")]
         public IActionResult PutStudent(int id)
         {
-
-            student.IdStudent = id;
+        
             return Ok("Update completed");
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteStudent(int id)
         {     
-            if (student.IdStudent == id)
-            {
-                student = null;
-            }
+         
             return Ok("Delete completed");
         }
 
